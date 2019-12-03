@@ -1,14 +1,12 @@
-import os
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import os
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
+app = dash.Dash(__name__)
 server = app.server
+
+app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 app.layout = html.Div([
     html.H2('Hello World'),
@@ -24,7 +22,6 @@ app.layout = html.Div([
               [dash.dependencies.Input('dropdown', 'value')])
 def display_value(value):
     return 'You have selected "{}"'.format(value)
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
