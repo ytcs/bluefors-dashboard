@@ -10,6 +10,7 @@ def read_channel(chan,num_entries,timespan=None):
     SELECT
     test_db.fridgeTime,test_db.lakeshore372_{chan}
     FROM test_db
+    WHERE fridgeTime >= NOW() - INTERVAL 1 DAY
     ORDER BY test_db.fridgeTime DESC''')
 
     if num_entries>0:
