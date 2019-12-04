@@ -25,8 +25,8 @@ app.layout = html.Div(
 @app.callback(Output('live-update-graph', 'figure'),
               [Input('interval-component', 'n_intervals')])
 def update_graph_live(n):
-    temp6_data = list(zip(*model.read_channel('temp6', 100)))
-    temp8_data = list(zip(*model.read_channel('temp8', 100)))
+    temp6_data = list(zip(*model.read_channel('temp6', 8000)))
+    temp8_data = list(zip(*model.read_channel('temp8', 8000)))
 
     fig = plotly.subplots.make_subplots(rows=2, cols=1, vertical_spacing=0.2)
     fig.append_trace({
