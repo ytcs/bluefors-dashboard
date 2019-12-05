@@ -29,7 +29,7 @@ def update_graph_live(n):
     fig = plotly.subplots.make_subplots(rows=2, cols=1, vertical_spacing=0.2)
     fig.layout['uirevision']=True
     channels = model.get_channels()
-    for c in channels:
+    for c in sorted(channels):
         data = model.read_channel(c,8000)
         fig.append_trace({
             'x': list(data[0]),
