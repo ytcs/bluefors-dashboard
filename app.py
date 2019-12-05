@@ -17,7 +17,7 @@ app.layout = html.Div(
         dcc.Graph(id='live-update-graph'),
         dcc.Interval(
             id='interval-component',
-            interval=10*1000,  # in milliseconds
+            interval=80*1000,  # in milliseconds
             n_intervals=0
         )
     ])
@@ -27,7 +27,7 @@ app.layout = html.Div(
               [Input('interval-component', 'n_intervals')])
 def update_graph_live(n):
     fig = plotly.subplots.make_subplots(rows=2, cols=1, vertical_spacing=0.2)
-
+    fig.layout['uirevision']=True
     channels = model.get_channels()
     for c in channels:
         data = model.read_channel(c,8000)
