@@ -2,6 +2,7 @@ import mysql.connector
 import time
 import os
 import itertools
+import datetime
 
 def get_channels():
     db_connection = mysql.connector.Connect(
@@ -37,4 +38,6 @@ def read_channel(chan, num_entries, timespan=None):
         results = db_cursor.fetchall()
     db_cursor.close()
     db_connection.close()
-    return list(zip(*results))
+    results= list(zip(*results))
+    #convert timezone from UTC to PST
+    return [dt+datetime.timedelta(hours=-8) for dt in results[0]],list(results[1])

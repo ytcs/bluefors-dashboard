@@ -32,8 +32,8 @@ def update_graph_live(n):
     for c in sorted(channels,reverse=True):
         data = model.read_channel(c,8000)
         fig.append_trace({
-            'x': list(data[0]),
-            'y': list(data[1]),
+            'x': data[0],
+            'y': data[1],
             'name': c
         }, 1 if 'temp' in c else 2, 1)
 
