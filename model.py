@@ -11,7 +11,8 @@ def get_channels():
 
     db_cursor.execute('''
     SELECT DISTINCT channel
-    FROM bluefors''')
+    FROM bluefors
+    WHERE fridgeTime >= NOW() - INTERVAL 1 DAY''')
 
     results = db_cursor.fetchall()
     db_cursor.close()
