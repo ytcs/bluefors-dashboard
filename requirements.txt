@@ -30,7 +30,7 @@ mysql-connector-python==8.0.18
 mysqlclient==1.4.6
 numpy==1.17.4
 pandas==0.25.3
-paramiko==2.7.0
+paramiko==2.10.1
 parso==0.5.1
 pickleshare==0.7.5
 plotly==4.3.0
